@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:imovie_app/app/login/data/login_service.dart';
-import 'package:imovie_app/app/login/interactor/login_state.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 
-class LoginController extends ValueNotifier<LoginState> {
-  LoginController() : super(IdleState());
+import '../data/login_service.dart';
+import 'login_state.dart';
 
-  final service = LoginService();
+class LoginController {
+  final LoginService service;
+  LoginController(this.service);
 
   Future<LoginState> login({required String usrname, required String password}) async {
     final result = await service.login(usrname, password);

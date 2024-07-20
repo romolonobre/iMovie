@@ -5,9 +5,9 @@ import 'series_states.dart';
 
 class SerieController extends ValueNotifier<SeriesState> {
   ValueNotifier<String> seasonNumber = ValueNotifier("1");
-  SerieController() : super(IdleState());
+  SerieController(this.service) : super(IdleState());
 
-  SeriesService service = SeriesService();
+  final SeriesService service;
 
   Future getSeries() async {
     _emit(SeriesLoadingState());

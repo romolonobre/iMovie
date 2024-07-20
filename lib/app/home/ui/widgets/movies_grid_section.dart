@@ -23,7 +23,7 @@ class MoviesGridSection extends StatelessWidget {
     required this.endpoint,
   });
 
-  MoviesService service = MoviesService();
+  final service = Modular.get<MoviesService>();
 
   @override
   Widget build(BuildContext context) {

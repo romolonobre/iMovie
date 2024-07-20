@@ -1,12 +1,13 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:developer';
-
-import 'package:imovie_app/app/login/data/login_datasource.dart';
 
 import '../../commons/error_handle.dart';
 import '../interactor/login_state.dart';
+import 'login_datasource.dart';
 
 class LoginService {
-  final datasource = LoginDatasource();
+  final LoginDatasource datasource;
+  LoginService({required this.datasource});
 
   Future<LoginState> login(String username, String password) async {
     try {

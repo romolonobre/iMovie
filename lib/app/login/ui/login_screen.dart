@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:imovie_app/app/commons/extensions/extensions.dart';
-import 'package:imovie_app/app/commons/flutter_widgets/imovie_textform_field.dart';
-import 'package:imovie_app/app/commons/imovie_ui/iui_buttons.dart';
-import 'package:imovie_app/app/commons/imovie_ui/iui_text.dart';
-import 'package:imovie_app/app/commons/utils.dart';
-import 'package:imovie_app/app/login/interactor/login_controller.dart';
-import 'package:imovie_app/app/login/interactor/login_state.dart';
+
+import '../../commons/flutter_widgets/imovie_textform_field.dart';
+import '../../commons/imovie_ui/iui_buttons.dart';
+import '../../commons/imovie_ui/iui_text.dart';
+import '../../commons/utils.dart';
+import '../interactor/login_controller.dart';
+import '../interactor/login_state.dart';
 
 // Login is not working at the moment, all parameters are correct but
 // still returning "Invalid parameters: Your request parameters are incorrect."
@@ -82,6 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ? () async {
                         if (_formKey.currentState!.validate()) {
                           Modular.to.pushNamed('/home');
+                          // TODO: unconment this method when endpoint is fixed
                           // await onLogin();
                         }
                       }

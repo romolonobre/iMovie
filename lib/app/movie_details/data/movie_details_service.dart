@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:imovie_app/app/commons/helper.dart';
 
 import '../interactor/entities/cast.dart';
@@ -9,7 +10,10 @@ import 'adapters/reviews_adapter.dart';
 import 'movies_details_datasource.dart';
 
 class MovieDetailsService {
-  MovieDetailsDatasource datasource = MovieDetailsDatasource();
+  MovieDetailsDatasource datasource;
+  MovieDetailsService({
+    required this.datasource,
+  });
 
   Future<MovieDetailsState> getGenres({required String id}) async {
     try {

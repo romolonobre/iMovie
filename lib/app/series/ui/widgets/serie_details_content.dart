@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:imovie_app/app/commons/extensions/extensions.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -20,7 +21,7 @@ class SerieDetailsContentWidget extends StatelessWidget {
     this.isDetailsScreen = false,
   });
 
-  final controller = SerieController();
+  final controller = Modular.get<SerieController>();
 
   @override
   Widget build(BuildContext context) {
@@ -112,12 +113,6 @@ class SerieDetailsContentWidget extends StatelessWidget {
         return const SizedBox();
       },
     );
-  }
-
-  Widget _getWidget({required List<Widget> children}) {
-    return isDetailsScreen
-        ? Column(mainAxisAlignment: MainAxisAlignment.center, children: children)
-        : Row(mainAxisAlignment: MainAxisAlignment.center, children: children);
   }
 
   void _launchURL(String url) async {
