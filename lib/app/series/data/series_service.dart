@@ -1,4 +1,4 @@
-import '../../commons/cache.dart';
+import '../../commons/app_services/cache.dart';
 import '../interactor/entities/serie_details.dart';
 import '../interactor/series_states.dart';
 import 'adapters/serie_details_adapter.dart';

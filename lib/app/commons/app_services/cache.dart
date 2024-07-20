@@ -1,5 +1,5 @@
-import '../series/interactor/entities/serie_details.dart';
-import '../series/interactor/entities/series.dart';
+import '../../series/interactor/entities/serie_details.dart';
+import '../../series/interactor/entities/series.dart';
 
 class Cache {
   Cache._internal();

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:imovie_app/app/commons/utils.dart';
+import 'package:imovie_app/app/commons/app_services/utils.dart';
 
 class NavigationBottomBar extends StatefulWidget {
   final List<Widget> screens;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../utils.dart';
+import '../app_services/utils.dart';
 
 class IUILoader extends StatelessWidget {
   final String? message;

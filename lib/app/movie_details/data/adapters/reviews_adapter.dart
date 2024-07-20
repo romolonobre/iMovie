@@ -1,7 +1,7 @@
-import 'package:imovie_app/app/commons/entity_adaptor.dart';
-import 'package:imovie_app/app/commons/helper.dart';
+import 'package:imovie_app/app/commons/app_services/entity_adaptor.dart';
+import 'package:imovie_app/app/commons/app_services/helper.dart';
 
-import '../../../commons/utils.dart';
+import '../../../commons/app_services/utils.dart';
 import '../../interactor/entities/review.dart';
 
 class ReviewsAdapter extends EntityAdaptor<Review> {

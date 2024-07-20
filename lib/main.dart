@@ -5,7 +5,7 @@ import 'package:imovie_app/app/app.dart';
 import 'package:imovie_app/app/app_module.dart';
 import 'package:imovie_app/firebase_options.dart';
 
-import 'app/commons/utils.dart';
+import 'app/commons/app_services/utils.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

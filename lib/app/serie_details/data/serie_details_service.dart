@@ -1,4 +1,4 @@
-import '../../commons/helper.dart';
+import '../../commons/app_services/helper.dart';
 import '../interactor/entities/serie_season.dart';
 import '../interactor/entities/serie_video.dart';
 import '../interactor/serie_details_state.dart';
