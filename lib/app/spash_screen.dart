@@ -13,6 +13,8 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    // TODO: Need to add the check if user is logged, wait till login endpoint is fixed
+    //
     Future.delayed(const Duration(seconds: 2)).then((value) => Modular.to.navigate('/login/'));
   }
 

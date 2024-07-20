@@ -82,7 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 onPressed: password.isNotEmpty && userName.isNotEmpty
                     ? () async {
                         if (_formKey.currentState!.validate()) {
-                          Modular.to.pushNamed('/home');
+                          Modular.to.navigate('/home');
                           // TODO: unconment this method when endpoint is fixed
                           // await onLogin();
                         }
