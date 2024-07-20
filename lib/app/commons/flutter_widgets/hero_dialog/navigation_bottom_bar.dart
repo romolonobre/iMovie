@@ -57,6 +57,12 @@ class _NavigationBottomBarState extends State<NavigationBottomBar> {
                     color: Colors.white,
                   ),
                   label: "Tv Series"),
+              NavigationDestination(
+                  icon: Icon(
+                    Icons.person_2_outlined,
+                    color: Colors.white,
+                  ),
+                  label: "Profile"),
             ],
           ),
         ),
