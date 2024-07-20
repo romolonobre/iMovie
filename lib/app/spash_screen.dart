@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:imovie_app/app/commons/imovie_ui/iui_text.dart';
+import 'package:imovie_app/app/commons/remote_config/remote_config.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -13,9 +14,10 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    // TODO: Need to add the check if user is logged, wait till login endpoint is fixed
-    //
-    Future.delayed(const Duration(seconds: 2)).then((value) => Modular.to.navigate('/login/'));
+
+    // We are fetching the navigation path from firebase remore config
+    final String navigatoPath = getInitialNavigationPath();
+    Future.delayed(const Duration(seconds: 2)).then((value) => Modular.to.navigate('/$navigatoPath/'));
   }
 
   @override
@@ -51,5 +53,9 @@ class _SplashScreenState extends State<SplashScreen> {
         ],
       ),
     );
+  }
+
+  String getInitialNavigationPath() {
+    return CustomRemoteConfig().getValueOrDefault(key: "initialNavigationPath", defaultValue: "home");
   }
 }
