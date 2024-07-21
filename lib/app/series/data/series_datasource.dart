@@ -13,7 +13,7 @@ class SeriesDatasource extends APIRequest {
     try {
       response = await this.get("3/tv/on_the_air");
     } catch (error, stackTrace) {
-      Errorhandler.report(error, stackTrace, "getSeries");
+      Errorhandler.report(error, stackTrace, tag: "@SeriesDatasource getSeries");
     } finally {
       return TMDBApiResponse(response);
     }
@@ -24,7 +24,7 @@ class SeriesDatasource extends APIRequest {
     try {
       response = await this.get("3/tv/$id");
     } catch (error, stackTrace) {
-      Errorhandler.report(error, stackTrace, "getSeasonVideos");
+      Errorhandler.report(error, stackTrace, tag: "@SeriesDatasource getDetails");
     } finally {
       return TMDBApiResponse(response);
     }

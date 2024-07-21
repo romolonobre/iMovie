@@ -12,7 +12,7 @@ class MoviesDatasource extends APIRequest {
     try {
       response = await this.get(endpoint);
     } catch (error, stackTrace) {
-      Errorhandler.report(error, stackTrace, "getSeasonVideos");
+      Errorhandler.report(error, stackTrace, tag: "MoviesDatasource call");
     } finally {
       return TMDBApiResponse(response);
     }

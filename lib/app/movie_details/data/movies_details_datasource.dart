@@ -12,7 +12,7 @@ class MovieDetailsDatasource extends APIRequest {
     try {
       response = await this.get(endpoint);
     } catch (error, stackTrace) {
-      Errorhandler.report(error, stackTrace, tag);
+      Errorhandler.report(error, stackTrace, tag: tag);
     } finally {
       return TMDBApiResponse(response);
     }

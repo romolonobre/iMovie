@@ -12,7 +12,7 @@ class LoginDatasource extends APIRequest {
     try {
       response = await this.get("3/authentication/token/new");
     } catch (e, s) {
-      Errorhandler.report(e, s, '@LoginDatasource - getRequestToken');
+      Errorhandler.report(e, s, tag: '@LoginDatasource - getRequestToken');
     } finally {
       return TMDBApiResponse(response);
     }
@@ -33,7 +33,7 @@ class LoginDatasource extends APIRequest {
         },
       );
     } catch (error, stackTrace) {
-      Errorhandler.report(error, stackTrace, "@LoginDatasource - login");
+      Errorhandler.report(error, stackTrace, tag: "@LoginDatasource - login");
     } finally {
       return TMDBApiResponse(response);
     }

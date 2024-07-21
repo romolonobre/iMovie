@@ -12,7 +12,7 @@ class SerieDetailsDatasource extends APIRequest {
     try {
       response = await this.get("3/tv/$id/season/$seasonNumber");
     } catch (error, stackTrace) {
-      Errorhandler.report(error, stackTrace, "getSeasons");
+      Errorhandler.report(error, stackTrace, tag: "@SerieDetailsDatasource getSeasons");
     } finally {
       return TMDBApiResponse(response);
     }
@@ -23,7 +23,7 @@ class SerieDetailsDatasource extends APIRequest {
     try {
       response = await this.get("3/tv/$id/season/$seasonNumber/videos");
     } catch (error, stackTrace) {
-      Errorhandler.report(error, stackTrace, "getSeasonVideos");
+      Errorhandler.report(error, stackTrace, tag: "@SerieDetailsDatasource getSeasonVideos");
     } finally {
       return TMDBApiResponse(response);
     }

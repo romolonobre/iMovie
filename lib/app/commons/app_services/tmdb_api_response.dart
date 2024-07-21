@@ -48,7 +48,7 @@ class TMDBApiResponse {
       hasError = true;
       errorMessage = "Error: ${response!.statusCode}, ${response!.reasonPhrase}";
     } catch (error, stackTrace) {
-      Errorhandler.report(error, stackTrace, "@LoginDatasource -login");
+      Errorhandler.report(error, stackTrace, tag: "TMDBApiResponse");
     }
   }
 }
