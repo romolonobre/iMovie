@@ -2,9 +2,9 @@
 import '../interactor/login_state.dart';
 import 'login_datasource.dart';
 
-class LoginService {
+class TMDBLoginService {
   final LoginDatasource datasource;
-  LoginService({required this.datasource});
+  TMDBLoginService({required this.datasource});
 
   Future<LoginState> login(String username, String password) async {
     try {

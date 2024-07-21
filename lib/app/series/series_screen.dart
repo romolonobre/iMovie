@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:imovie_app/app/commons/extensions/extensions.dart';
 
+import '../commons/app_services/utils.dart';
 import '../commons/imovie_ui/iui_grid_view.dart';
 import '../commons/imovie_ui/iui_loader.dart';
 import '../commons/imovie_ui/iui_text.dart';
@@ -21,7 +22,7 @@ class SeriesScreen extends StatelessWidget {
       valueListenable: controller..getSeries(),
       builder: (_, state, child) {
         return Scaffold(
-          backgroundColor: const Color(0xff131418),
+          backgroundColor: backgroundColor,
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [

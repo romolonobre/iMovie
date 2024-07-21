@@ -1,5 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:imovie_app/app/login/login_module.dart';
+import 'package:imovie_app/app/authentication/login_module.dart';
 import 'package:imovie_app/app/spash_screen.dart';
 
 import 'home/home_module.dart';

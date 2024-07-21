@@ -18,6 +18,7 @@ class CustomRemoteConfig {
         minimumFetchInterval: const Duration(hours: 1),
       ),
     );
+    await forceFetch();
   }
 
   Future<void> forceFetch() async {

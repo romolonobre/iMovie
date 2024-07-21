@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../commons/app_services/utils.dart';
 import '../../commons/imovie_ui/iui_buttons.dart';
 import '../../home/interactor/entities/movie.dart';
 import '../data/movie_details_service.dart';
@@ -19,7 +20,7 @@ class MovieDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff242226),
+      backgroundColor: backgroundColor,
       body: Stack(
         children: [
           SingleChildScrollView(
