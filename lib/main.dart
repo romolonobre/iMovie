@@ -1,14 +1,15 @@
 import 'dart:async';
 
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:imovie_app/app/app.dart';
 import 'package:imovie_app/app/app_module.dart';
+import 'package:imovie_app/app/commons/app_services/error_handle.dart';
 import 'package:imovie_app/firebase_options.dart';
 
 import 'app/commons/app_services/utils.dart';
+import 'app/commons/firebase_crashlitcs/custom_firebase_crashlitics.dart';
 import 'app/commons/remote_config/remote_config.dart';
 
 void main() async {
@@ -19,7 +20,7 @@ void main() async {
 
     Modular.setNavigatorKey(navigatorKey);
 
-    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
+    await CustomFirebaseCrashlitics().initialize();
 
     runApp(
       ModularApp(
@@ -28,6 +29,6 @@ void main() async {
       ),
     );
   }, (error, stack) {
-    FirebaseCrashlytics.instance.recordError(error, stack);
+    Errorhandler.report(error, stack);
   });
 }
