@@ -2,6 +2,8 @@
 import '../interactor/login_state.dart';
 import 'login_datasource.dart';
 
+// The enpoint for login with TMDB has an issue so we are using
+// firebase to login. TMDBLoginService is not in use at the moment
 class TMDBLoginService {
   final LoginDatasource datasource;
   TMDBLoginService({required this.datasource});
@@ -11,18 +13,18 @@ class TMDBLoginService {
       final tokenResponse = await datasource.getRequestToken();
 
       if (tokenResponse.hasError) {
-        return LoginErroState(errorMessage: tokenResponse.errorMessage);
+        return AuthErrorState(errorMessage: tokenResponse.errorMessage);
       }
       final String token = tokenResponse.data["request_token"];
 
       final resposne = await datasource.login(username, password, token);
 
       if (resposne.hasError) {
-        return LoginErroState(errorMessage: resposne.errorMessage);
+        return AuthErrorState(errorMessage: resposne.errorMessage);
       }
       return LoginSuccessState();
     } catch (error) {
-      return LoginErroState(errorMessage: error.toString());
+      return AuthErrorState(errorMessage: error.toString());
     }
   }
 }

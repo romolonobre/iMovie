@@ -7,17 +7,6 @@ import '../../commons/app_services/error_handle.dart';
 import '../../commons/app_services/tmdb_api_response.dart';
 
 class LoginDatasource extends APIRequest {
-  Future<TMDBApiResponse> getRequestToken() async {
-    Response? response;
-    try {
-      response = await this.get("3/authentication/token/new");
-    } catch (e, s) {
-      Errorhandler.report(e, s, tag: '@LoginDatasource - getRequestToken');
-    } finally {
-      return TMDBApiResponse(response);
-    }
-  }
-
   // This endpoint is not working at the moment, all parameters are correct but
   // still returning "Invalid parameters: Your request parameters are incorrect."
 
@@ -34,6 +23,17 @@ class LoginDatasource extends APIRequest {
       );
     } catch (error, stackTrace) {
       Errorhandler.report(error, stackTrace, tag: "@LoginDatasource - login");
+    } finally {
+      return TMDBApiResponse(response);
+    }
+  }
+
+  Future<TMDBApiResponse> getRequestToken() async {
+    Response? response;
+    try {
+      response = await this.get("3/authentication/token/new");
+    } catch (e, s) {
+      Errorhandler.report(e, s, tag: '@LoginDatasource - getRequestToken');
     } finally {
       return TMDBApiResponse(response);
     }
