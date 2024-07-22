@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:imovie_app/app/authentication/data/firebase_auth_service.dart';
 import 'package:imovie_app/app/commons/imovie_ui/iui_text.dart';
 import 'package:imovie_app/app/commons/remote_config/remote_config.dart';
 
@@ -11,12 +12,13 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  final service = Modular.get<FirebaseAuthService>();
+
   @override
   void initState() {
     super.initState();
-
-    // We are fetching the navigation path from firebase remore config
-    final String navigatoPath = getInitialNavigationPath();
+    final user = service.getCurrentUser();
+    final String navigatoPath = user != null ? "home" : "login";
     Future.delayed(const Duration(seconds: 2)).then((value) => Modular.to.navigate('/$navigatoPath/'));
   }
 
