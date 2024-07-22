@@ -1,16 +1,37 @@
 import 'package:flutter/material.dart';
 
-class ImovieTextformField extends StatelessWidget {
-  final String hintText;
-  final Function(String) onChanged;
-  const ImovieTextformField({required this.hintText, required this.onChanged, super.key});
+class ImovieTextformField extends StatefulWidget {
+  final String? hintText;
+  final Function(String)? onChanged;
+  final bool isPasswordField;
+  final String? initialValue;
+  final bool isReadOnly;
+
+  const ImovieTextformField({
+    this.hintText,
+    this.onChanged,
+    this.initialValue,
+    this.isPasswordField = false,
+    this.isReadOnly = false,
+    super.key,
+  });
+
+  @override
+  _ImovieTextformFieldState createState() => _ImovieTextformFieldState();
+}
+
+class _ImovieTextformFieldState extends State<ImovieTextformField> {
+  bool _obscureText = true;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      style: const TextStyle(color: Colors.white),
+      initialValue: widget.initialValue,
+      style: TextStyle(color: widget.isReadOnly ? Colors.grey.shade500 : Colors.white),
+      obscureText: widget.isPasswordField ? _obscureText : false,
+      readOnly: widget.isReadOnly,
       decoration: InputDecoration(
-        hintText: hintText,
+        hintText: widget.hintText,
         hintStyle: TextStyle(color: Colors.grey.withOpacity(0.5)),
         enabledBorder: const UnderlineInputBorder(
           borderSide: BorderSide(color: Colors.white),
@@ -18,8 +39,21 @@ class ImovieTextformField extends StatelessWidget {
         focusedBorder: const UnderlineInputBorder(
           borderSide: BorderSide(color: Colors.white),
         ),
+        suffixIcon: suffixIcon(),
       ),
-      onChanged: (value) => onChanged(value),
+      onChanged: widget.onChanged != null ? (value) => widget.onChanged!(value) : null,
     );
+  }
+
+  Widget? suffixIcon() {
+    if (widget.isPasswordField) {
+      return IconButton(
+          icon: Icon(_obscureText ? Icons.visibility : Icons.visibility_off, color: Colors.white),
+          onPressed: () => setState(() => _obscureText = !_obscureText));
+    }
+    if (widget.isReadOnly) {
+      return const Icon(Icons.lock);
+    }
+    return null;
   }
 }
