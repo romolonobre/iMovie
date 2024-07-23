@@ -18,7 +18,7 @@ packages:
     source: hosted
     version: "2.11.0"
   auto_injector:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: auto_injector
       sha256: "2952a4d4339ed3b65e8e54765ec68ee6ada5cb21d83cb8d39e3f6b4e690ab5ca"
