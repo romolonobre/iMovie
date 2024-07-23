@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1076756629279",
+    "project_id": "i-movie-e0d88",
+    "storage_bucket": "i-movie-e0d88.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1076756629279:android:86cbb98f8e2337f47a122a",
+        "android_client_info": {
+          "package_name": "com.romolo.imovie"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvtJy-UccD0OUeKRGny-4rCSRP56mRPCc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

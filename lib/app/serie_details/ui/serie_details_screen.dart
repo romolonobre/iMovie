@@ -4,6 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:imovie_app/app/commons/extensions/extensions.dart';
 import 'package:imovie_app/app/series/interactor/entities/series.dart';
 
+import '../../commons/app_services/utils.dart';
 import '../../commons/imovie_ui/iui_buttons.dart';
 import '../../commons/imovie_ui/iui_text.dart';
 import '../../series/interactor/serie_controller.dart';
@@ -23,7 +24,7 @@ class _SerieDetailsScreenState extends State<SerieDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff242226),
+      backgroundColor: backgroundColor,
       body: Stack(
         children: [
           SingleChildScrollView(

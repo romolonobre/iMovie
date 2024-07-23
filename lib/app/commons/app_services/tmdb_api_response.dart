@@ -1,8 +1,10 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:http/http.dart';
 
 import 'error_handle.dart';
+import 'utils.dart';
 
 class TMDBApiResponse {
   final Response? response;
@@ -11,6 +13,13 @@ class TMDBApiResponse {
   dynamic data;
 
   TMDBApiResponse(this.response) {
+    log(''' 
+  --------- API RESPONSE ---------
+  Request Fingerprint: ${fingerPrint.millisecondsSinceEpoch}
+  Status Code: ${response?.statusCode}
+  Headers: ${response?.headers}
+  --------------------------------''');
+
     try {
       if (response == null) {
         hasError = true;
@@ -39,7 +48,7 @@ class TMDBApiResponse {
       hasError = true;
       errorMessage = "Error: ${response!.statusCode}, ${response!.reasonPhrase}";
     } catch (error, stackTrace) {
-      Errorhandler.report(error, stackTrace, "@LoginDatasource -login");
+      Errorhandler.report(error, stackTrace, tag: "TMDBApiResponse");
     }
   }
 }

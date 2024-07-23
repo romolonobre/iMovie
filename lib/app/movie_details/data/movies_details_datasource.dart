@@ -1,10 +1,10 @@
 // ignore_for_file: control_flow_in_finally
 
 import 'package:http/http.dart';
-import 'package:imovie_app/app/commons/error_handle.dart';
+import 'package:imovie_app/app/commons/app_services/error_handle.dart';
 
-import '../../commons/api_request.dart';
-import '../../commons/tmdb_api_response.dart';
+import '../../commons/app_services/api_request.dart';
+import '../../commons/app_services/tmdb_api_response.dart';
 
 class MovieDetailsDatasource extends APIRequest {
   Future<TMDBApiResponse> _fetchData(String endpoint, {required String tag}) async {
@@ -12,7 +12,7 @@ class MovieDetailsDatasource extends APIRequest {
     try {
       response = await this.get(endpoint);
     } catch (error, stackTrace) {
-      Errorhandler.report(error, stackTrace, tag);
+      Errorhandler.report(error, stackTrace, tag: tag);
     } finally {
       return TMDBApiResponse(response);
     }

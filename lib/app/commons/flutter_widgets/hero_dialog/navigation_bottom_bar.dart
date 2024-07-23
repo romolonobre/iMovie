@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:imovie_app/app/commons/utils.dart';
+import 'package:imovie_app/app/commons/app_services/utils.dart';
+import 'package:imovie_app/app/commons/remote_config/remote_config.dart';
 
 class NavigationBottomBar extends StatefulWidget {
   final List<Widget> screens;
@@ -43,25 +44,36 @@ class _NavigationBottomBarState extends State<NavigationBottomBar> {
             animationDuration: const Duration(seconds: 1),
             selectedIndex: selectedIndex,
             onDestinationSelected: (value) => setState(() => selectedIndex = value),
-            destinations: const [
-              NavigationDestination(
+            destinations: [
+              const NavigationDestination(
                   icon: Icon(
                     Icons.home_outlined,
                     size: 30,
                     color: Colors.white,
                   ),
                   label: "Home"),
-              NavigationDestination(
+              const NavigationDestination(
                   icon: Icon(
                     Icons.tv,
                     color: Colors.white,
                   ),
                   label: "Tv Series"),
+              if (showProfile())
+                const NavigationDestination(
+                    icon: Icon(
+                      Icons.person_2_outlined,
+                      color: Colors.white,
+                    ),
+                    label: "Profile"),
             ],
           ),
         ),
       ),
       body: widget.screens[selectedIndex],
     );
+  }
+
+  bool showProfile() {
+    return CustomRemoteConfig().getValueOrDefault(key: "showProfile", defaultValue: false);
   }
 }

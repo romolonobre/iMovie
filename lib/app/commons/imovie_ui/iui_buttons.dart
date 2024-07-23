@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:imovie_app/app/commons/extensions/extensions.dart';
 
-import '../utils.dart';
+import '../app_services/utils.dart';
 import 'iui_text.dart';
 
 class IUIButtons {
@@ -106,6 +107,31 @@ class IUIButtons {
                 fontWeight: FontWeight.w600,
               ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  static Widget close(
+    BuildContext context, {
+    Function? onTap,
+    Color? color,
+  }) {
+    return InkWell(
+      onTap: () => onTap != null ? onTap() : Navigator.of(context).pop(),
+      child: Container(
+        height: 50,
+        color: Colors.transparent,
+        child: Row(
+          children: [
+            Icon(
+              Icons.close,
+              size: 15,
+              color: Colors.grey.shade600,
+            ).paddingOnly(top: 2),
+            const SizedBox(width: 2),
+            IUIText.heading('close', color: color ?? Colors.grey.shade600, fontsize: 14),
           ],
         ),
       ),

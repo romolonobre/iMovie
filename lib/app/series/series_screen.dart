@@ -2,19 +2,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:imovie_app/app/commons/extensions/extensions.dart';
-import 'package:imovie_app/app/commons/imovie_ui/iui_grid_view.dart';
-import 'package:imovie_app/app/series/interactor/serie_controller.dart';
-import 'package:imovie_app/app/series/interactor/series_states.dart';
 
+import '../commons/app_services/utils.dart';
+import '../commons/imovie_ui/iui_grid_view.dart';
 import '../commons/imovie_ui/iui_loader.dart';
 import '../commons/imovie_ui/iui_text.dart';
-import '../serie_details/ui/serie_details_screen.dart';
+import 'interactor/serie_controller.dart';
+import 'interactor/series_states.dart';
 import 'ui/widgets/series_carousel_widge.dart';
 
 class SeriesScreen extends StatelessWidget {
   SeriesScreen({super.key});
 
-  final controller = SerieController();
+  final controller = Modular.get<SerieController>();
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class SeriesScreen extends StatelessWidget {
       valueListenable: controller..getSeries(),
       builder: (_, state, child) {
         return Scaffold(
-          backgroundColor: const Color(0xff131418),
+          backgroundColor: backgroundColor,
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -71,9 +71,7 @@ class SeriesScreen extends StatelessWidget {
                                 Expanded(
                                   child: GestureDetector(
                                     onTap: () {
-                                      Modular.to.push(MaterialPageRoute(
-                                        builder: (context) => SerieDetailsScreen(serie: serie),
-                                      ));
+                                      Modular.to.pushNamed('./serie-details', arguments: serie);
                                     },
                                     child: Container(
                                       decoration: BoxDecoration(

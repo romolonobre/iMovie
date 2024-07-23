@@ -1,4 +1,4 @@
-import '../../commons/helper.dart';
+import '../../commons/app_services/helper.dart';
 import '../interactor/entities/serie_season.dart';
 import '../interactor/entities/serie_video.dart';
 import '../interactor/serie_details_state.dart';
@@ -6,7 +6,9 @@ import 'adapters/serie_season_adapter.dart';
 import 'serie_details.datasource.dart';
 
 class SerieDetailsService {
-  final datasource = SerieDetailsDatasource();
+  final SerieDetailsDatasource datasource;
+
+  SerieDetailsService({required this.datasource});
   Future<SerieDetailsState> getSeasons(String id, String seasonNumber) async {
     try {
       final response = await datasource.getSeasons(id, seasonNumber);

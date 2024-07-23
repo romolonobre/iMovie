@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../commons/app_services/utils.dart';
 import 'widgets/movies_grid_section.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,7 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff242226),
+      backgroundColor: backgroundColor,
       body: SingleChildScrollView(
         child: Column(
           children: [

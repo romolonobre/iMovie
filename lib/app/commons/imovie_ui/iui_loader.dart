@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../utils.dart';
+import '../app_services/utils.dart';
 
 class IUILoader extends StatelessWidget {
   final String? message;
@@ -30,6 +30,7 @@ class IUILoader extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
+          //
           // Optional message
           if (message != null)
             Text(

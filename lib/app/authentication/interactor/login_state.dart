@@ -7,7 +7,11 @@ class LoginLoadingState extends LoginState {}
 
 class LoginSuccessState extends LoginState {}
 
-class LoginErroState extends LoginState {
+class RegisterSuccessState extends LoginState {}
+
+class SignOutState extends LoginState {}
+
+class AuthErrorState extends LoginState {
   final String errorMessage;
-  LoginErroState({required this.errorMessage});
+  AuthErrorState({required this.errorMessage});
 }
