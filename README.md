@@ -12,7 +12,7 @@ This app provides users with details, reviews, videos, external links to watch s
 
 
 
-## Most Plugins Used    
+## Imortant Packages Used    
 - firebase_core
 - firebase_remote_config
 - firebase_crashlytics
