@@ -120,9 +120,7 @@ class IUIButtons {
   }) {
     return InkWell(
       onTap: () => onTap != null ? onTap() : Navigator.of(context).pop(),
-      // Use a Container to increase the tappable area
       child: Container(
-        // width: 80,
         height: 50,
         color: Colors.transparent,
         child: Row(

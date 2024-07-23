@@ -60,6 +60,9 @@ class SerieDetailsContentWidget extends StatelessWidget {
                       ImdbReviewWidget(review: state.details.vote)
                     ],
                   ),
+
+                  //
+                  // Genres
                   ...state.details.genres.map(
                     (e) {
                       return Container(
@@ -80,6 +83,8 @@ class SerieDetailsContentWidget extends StatelessWidget {
               ),
               Column(
                 children: [
+                  //
+                  // Watchlist button
                   IUIButtons.icon(
                     icon: Icons.add,
                     label: 'Watchlist',
@@ -92,6 +97,8 @@ class SerieDetailsContentWidget extends StatelessWidget {
                   Stack(
                     alignment: Alignment.centerRight,
                     children: [
+                      //
+                      // Play button
                       IUIButtons.icon(
                         icon: Icons.play_arrow,
                         label: 'Play',

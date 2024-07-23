@@ -1,5 +1,4 @@
 import '../../series/interactor/entities/serie_details.dart';
-import '../../series/interactor/entities/series.dart';
 
 class Cache {
   Cache._internal();
@@ -9,7 +8,7 @@ class Cache {
   factory Cache() {
     return _instance;
   }
-  List<Serie>? _seriesCache;
+
   // Cache storage for details
   final Map<String, SerieDetails> _detailsCache = {};
 

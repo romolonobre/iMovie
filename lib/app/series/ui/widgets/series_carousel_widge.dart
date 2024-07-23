@@ -49,13 +49,20 @@ class _SeriesCarouselWidgetState extends State<SeriesCarouselWidget> {
               return Stack(
                 alignment: Alignment.bottomCenter,
                 children: [
+                  //
+                  // Image
                   Image.network(
                     serie.postImage,
                     fit: BoxFit.cover,
                     height: 340,
                     width: double.infinity,
                   ),
+                  //
+                  // Shadow container
                   Container(height: 340, color: Colors.black26),
+
+                  //
+                  // Content
                   Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -84,11 +91,10 @@ class _SeriesCarouselWidgetState extends State<SeriesCarouselWidget> {
   }
 
   void animateToNextPage() {
-    // Initialize the PageController with the initial page 0
     _pageController = PageController(initialPage: 0);
 
     // Start a timer that triggers every 3 seconds.
-    _timer = Timer.periodic(const Duration(seconds: 10), (Timer timer) {
+    _timer = Timer.periodic(const Duration(seconds: 3), (Timer timer) {
       if (_currentPage < _maxPages - 1) {
         _currentPage++;
       }

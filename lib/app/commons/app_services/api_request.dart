@@ -8,7 +8,6 @@ import 'package:imovie_app/app/commons/app_services/env.dart';
 import 'utils.dart';
 
 class APIRequest {
-  //Get Request
   final String baseUrl = Env.apiBaseUrl;
 
   final Map<String, String> requestHeaders = {
