@@ -4,10 +4,11 @@ import '../data/series_service.dart';
 import 'series_states.dart';
 
 class SerieController extends ValueNotifier<SeriesState> {
-  ValueNotifier<String> seasonNumber = ValueNotifier("1");
+  final SeriesService service;
   SerieController(this.service) : super(IdleState());
 
-  final SeriesService service;
+  // This controller uses the State Pattern to return the appropriate state
+  // based on the API response. The result is obtained and emitted to the listenrs.
 
   Future getSeries() async {
     _emit(SeriesLoadingState());

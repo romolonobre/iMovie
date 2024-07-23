@@ -8,6 +8,9 @@ class SerieDetailsController extends ValueNotifier<SerieDetailsState> {
 
   SerieDetailsController({required this.service}) : super(IdleState());
 
+  // This controller uses the State Pattern to return the appropriate state
+  // based on the API response. The result is obtained and emitted to the listenrs.
+
   Future getSeasons({required String id, required String seasonNumber}) async {
     _emit(SeriesDetailsLoadingState());
     final result = await service.getSeasons(id, seasonNumber);

@@ -9,6 +9,9 @@ class LoginController {
   final FirebaseAuthService service;
   LoginController(this.service);
 
+  // This controller utilizes the State Pattern to return
+  // the appropriate state based on the response from Firebase.
+
   Future<LoginState> loginWithFirebase({required String email, required String password}) async {
     final result = await service.loginWithFirebase(email, password);
     return result;
