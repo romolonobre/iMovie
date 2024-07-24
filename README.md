@@ -39,6 +39,10 @@ This app provides users with details, reviews, videos, external links to watch s
 
  <img width="909" alt="Screenshot 2024-07-24 at 12 29 29" src="https://github.com/user-attachments/assets/7d779ca6-2c18-43c2-b384-cecb103d499f">
 
+## See more
+
+<img width="967" alt="Screenshot 2024-07-24 at 13 11 52" src="https://github.com/user-attachments/assets/76ab79ad-235f-4d08-8fc2-ffa165b024d8">
+
 
 # Screen recording 
 
