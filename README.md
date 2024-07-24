@@ -33,16 +33,16 @@ This app provides users with details, reviews, videos, external links to watch s
 
 ## Splasscreen - Login - Register - Profile
  
-<img width="914" alt="Screenshot 2024-07-23 at 20 21 25" src="https://github.com/user-attachments/assets/14dd4385-a2c0-4449-bead-607765ab6be8">
+<img width="909" alt="Screenshot 2024-07-24 at 12 31 08" src="https://github.com/user-attachments/assets/d77ca509-952e-4b63-9a9e-124cbfd7b6c5">
 
-## Home(movies) - Movies details - Video player
+## Home(movies) - Movies details -Series - Series details 
 
-<img width="1005" alt="Screenshot 2024-07-23 at 20 23 18" src="https://github.com/user-attachments/assets/c7ac890c-6732-4505-b22b-b6e271a27fb2">
+ <img width="909" alt="Screenshot 2024-07-24 at 12 29 29" src="https://github.com/user-attachments/assets/7d779ca6-2c18-43c2-b384-cecb103d499f">
 
-## Series - Series details 
-
- <img width="1013" alt="Screenshot 2024-07-23 at 20 25 17" src="https://github.com/user-attachments/assets/de2f0a7b-3838-4767-a72c-9114d8e607db">
 
 # Screen recording 
 
- https://github.com/user-attachments/assets/3560ae2c-6548-4073-83b2-1ce407ec8450
+https://github.com/user-attachments/assets/56fb0b46-1a06-4804-ab91-37616a5b4e8a
+
+
+
