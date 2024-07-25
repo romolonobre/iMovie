@@ -24,8 +24,6 @@ class APIRequest {
   Request Fingerprint: ${fingerPrint.millisecondsSinceEpoch}
   Method: get
   URL: $endpoint
-  Headers: ${requestHeaders.toString()}
-
   --------------------------------''');
     return http.get(
       Uri.parse("$baseUrl$endpoint"),
@@ -43,9 +41,7 @@ class APIRequest {
   Request Fingerprint: ${fingerPrint.millisecondsSinceEpoch}
   Method: post
   URL: $endpoint
-  Headers: ${requestHeaders.toString()}
-   Body: $body
-
+  Body: $body
   --------------------------------''');
 
     return http.post(

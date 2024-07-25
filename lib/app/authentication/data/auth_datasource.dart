@@ -6,7 +6,7 @@ import 'package:imovie_app/app/commons/app_services/api_request.dart';
 import '../../commons/app_services/error_handle.dart';
 import '../../commons/app_services/tmdb_api_response.dart';
 
-class LoginDatasource extends APIRequest {
+class AuthDatasource extends APIRequest {
   // This endpoint is not working at the moment, all parameters are correct but
   // still returning "Invalid parameters: Your request parameters are incorrect."
 

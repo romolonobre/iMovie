@@ -1,14 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:imovie_app/app/authentication/data/service/auth_service.dart';
 import 'package:imovie_app/app/commons/entities/app_user.dart';
 
-import '../../commons/app_services/error_handle.dart';
-import '../interactor/login_state.dart';
+import '../../../commons/app_services/error_handle.dart';
+import '../../interactor/login_state.dart';
 
-class FirebaseAuthService {
+class FirebaseAuthService implements AuthService {
   final _auth = FirebaseAuth.instance;
 
   // Login
-  Future<LoginState> loginWithFirebase(String email, String password) async {
+  @override
+  Future<LoginState> login(String email, String password) async {
     try {
       final result = await _auth.signInWithEmailAndPassword(email: email, password: password);
       return result.user != null
@@ -23,7 +25,8 @@ class FirebaseAuthService {
   }
 
   // Register
-  Future<LoginState> registerWithFirebase(String email, String password) async {
+  @override
+  Future<LoginState> register(String email, String password) async {
     if (!_isPasswordStrong(password)) {
       return AuthErrorState(
         errorMessage:
@@ -44,15 +47,19 @@ class FirebaseAuthService {
   }
 
   // Update username
+  @override
   Future<void> updateUsername(String name) async => await _auth.currentUser?.updateDisplayName(name);
 
   // Update Profile image
+  @override
   Future<void> updateProfileImage(String image) async => await _auth.currentUser?.updatePhotoURL(image);
 
   // Get user
+  @override
   AppUser? getCurrentUser() => _parseUser(_auth.currentUser);
 
   // Send email Verification
+  @override
   Future<void> sendEmailVerification() async {
     if (_auth.currentUser != null) {
       await _auth.currentUser!.sendEmailVerification();
@@ -60,6 +67,7 @@ class FirebaseAuthService {
   }
 
   // Signout
+  @override
   Future<LoginState> signOut() async {
     await _auth.signOut();
     return SignOutState();

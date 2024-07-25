@@ -110,7 +110,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   Future<void> onRegister() async {
     setState(() => isLoading = true);
-    final state = await controller.registerWithFirebase(usrname: email, password: password);
+    final state = await controller.register(usrname: email, password: password);
 
     if (state is AuthErrorState) {
       errorMessage = state.errorMessage;

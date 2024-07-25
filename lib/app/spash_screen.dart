@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:imovie_app/app/authentication/data/firebase_auth_service.dart';
+import 'package:imovie_app/app/authentication/interactor/login_controller.dart';
 import 'package:imovie_app/app/commons/app_services/utils.dart';
 import 'package:imovie_app/app/commons/imovie_ui/iui_text.dart';
 
@@ -13,12 +13,12 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  final service = Modular.get<FirebaseAuthService>();
+  final service = Modular.get<LoginController>();
 
   @override
   void initState() {
     super.initState();
-    final user = service.getCurrentUser();
+    final user = service.getUser();
     //
     // Check if user is logged or not, if user is null it means the user is logged out
     final String navigatoPath = user != null ? "home" : "login";

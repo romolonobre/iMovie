@@ -75,11 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
             IUIButtons.solid(
               label: isLoading ? "Processing..." : "Login",
               height: 40,
-              onPressed: password.isNotEmpty && email.isNotEmpty
-                  ? () async {
-                      onLogin();
-                    }
-                  : null,
+              onPressed: password.isNotEmpty && email.isNotEmpty ? () async => onLogin() : null,
             ),
             const SizedBox(height: 20),
 
@@ -105,7 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future<void> onLogin() async {
     setState(() => isLoading = true);
-    final state = await controller.loginWithFirebase(email: email, password: password);
+    final state = await controller.login(email: email, password: password);
     if (state is AuthErrorState) {
       errorMessage = state.errorMessage;
       setState(() => isLoading = false);
