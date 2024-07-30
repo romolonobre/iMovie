@@ -33,47 +33,40 @@ class _RegisterScreenState extends State<RegisterScreen> {
           SizedBox(
             width: double.infinity,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SizedBox(height: 100),
-                Align(
-                  alignment: Alignment.center,
-                  child: IUIText.title(
-                    "IMovie",
-                    fontWeight: FontWeight.w700,
-                    fontsize: 60,
-                    color: primaryColor,
-                  ),
-                ),
-                const SizedBox(height: 50),
+                const SizedBox(height: 150),
                 IUIText.title(
                   "Register",
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w500,
                   fontsize: 30,
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 40),
 
                 // Name input
                 ImovieTextformField(
-                  hintText: 'Name',
+                  label: "Full name",
+                  hintText: 'eg: Jhon smith',
                   onChanged: (value) {
                     setState(() => name = value);
                   },
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
 
                 // Email input
                 ImovieTextformField(
-                  hintText: 'Email',
+                  label: "Email",
+                  hintText: "eg: jhon@gmail.com",
                   onChanged: (value) {
                     setState(() => email = value);
                   },
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
 
                 // Password input
                 ImovieTextformField(
-                  hintText: "Password",
+                  label: "Password",
+                  hintText: "Use a strong password",
                   isPasswordField: true,
                   onChanged: (value) {
                     setState(() => password = value);
@@ -83,11 +76,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                 // Register button
                 IUIButtons.solid(
-                    label: isLoading ? "Processing..." : "Register",
-                    height: 40,
-                    onPressed: () async {
-                      onRegister();
-                    }),
+                  label: isLoading ? "Processing..." : "Register",
+                  height: 50,
+                  onPressed: hasEmptyFields ? null : () async => onRegister(),
+                ),
+
                 if (errorMessage != null)
                   IUIText.heading(
                     errorMessage!,
@@ -121,4 +114,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
     setState(() => isLoading = false);
     Modular.to.pop();
   }
+
+  bool get hasEmptyFields => email.isEmpty || name.isEmpty || password.isEmpty;
 }

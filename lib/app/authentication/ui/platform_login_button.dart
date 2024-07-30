@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:imovie_app/app/commons/extensions/extensions.dart';
 
+import '../../commons/imovie_ui/iui_text.dart';
+
 class PlatformLoginButton extends StatelessWidget {
   final String icon;
   final Function ontap;
@@ -11,20 +13,20 @@ class PlatformLoginButton extends StatelessWidget {
     return GestureDetector(
       onTap: () => ontap(),
       child: Container(
-        height: 70,
-        width: 100,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          border: Border.all(
-            width: 0.6,
-            color: Colors.grey.shade300,
+          height: 60,
+          width: MediaQuery.sizeOf(context).width,
+          decoration: BoxDecoration(
+            color: Colors.white12,
+            borderRadius: BorderRadius.circular(15),
           ),
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: Image.asset(
-          icon,
-        ).paddingAll(20),
-      ),
+          child: Row(
+            children: [
+              Image.asset(
+                icon,
+              ).paddingAll(20),
+              IUIText.heading("Use Google Account", color: Colors.white24, fontsize: 14)
+            ],
+          ).paddingOnly(left: 40)),
     );
   }
 }

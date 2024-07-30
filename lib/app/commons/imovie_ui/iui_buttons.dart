@@ -23,7 +23,7 @@ class IUIButtons {
           backgroundColor: backgroundColor,
           textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(7), // Rounded corners
+            borderRadius: BorderRadius.circular(7),
           ),
         ),
         onPressed: onPressed,
@@ -71,9 +71,9 @@ class IUIButtons {
       height: height ?? 40,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: onPressed != null ? backgroundColor ?? primaryColor : Colors.grey,
+          backgroundColor: onPressed != null ? backgroundColor ?? primaryColor : Colors.white24,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(7),
+            borderRadius: BorderRadius.circular(10),
           ),
         ),
         onPressed: () => onPressed != null ? onPressed() : null,

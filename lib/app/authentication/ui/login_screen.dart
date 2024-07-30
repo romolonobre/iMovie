@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:imovie_app/app/authentication/ui/register_screen.dart';
 import 'package:imovie_app/app/commons/extensions/extensions.dart';
-import 'package:imovie_app/app/commons/remote_config/remote_config_visibility_widget.dart';
 
 import '../../commons/app_services/utils.dart';
 import '../../commons/flutter_widgets/imovie_textform_field.dart';
@@ -21,7 +20,6 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final controller = Modular.get<LoginController>();
-
   bool isLoading = false;
   String? errorMessage;
   String email = '';
@@ -34,60 +32,38 @@ class _LoginScreenState extends State<LoginScreen> {
       body: SizedBox(
         width: double.infinity,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 100),
-            Align(
-              alignment: Alignment.center,
-              child: IUIText.title(
-                "IMovie",
-                fontWeight: FontWeight.w700,
-                fontsize: 60,
-                color: primaryColor,
-              ),
-            ),
-            const SizedBox(height: 50),
             IUIText.title(
               "Login",
-              fontWeight: FontWeight.w700,
-              fontsize: 30,
+              fontWeight: FontWeight.w500,
+              fontsize: 39,
             ),
             const SizedBox(height: 20),
 
             // Email input
             ImovieTextformField(
-              hintText: 'Email',
-              onChanged: (value) {
-                setState(() => email = value);
-              },
+              label: "Email",
+              hintText: "eg: jhon@gmail.com",
+              onChanged: (value) => setState(() => email = value),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 15),
 
             // Password input
             ImovieTextformField(
-              hintText: "Password",
+              label: "Password",
+              hintText: 'Type your password',
               isPasswordField: true,
-              onChanged: (value) {
-                setState(() => password = value);
-              },
+              onChanged: (value) => setState(() => password = value),
             ),
             const SizedBox(height: 30),
 
             // Login button
             IUIButtons.solid(
               label: isLoading ? "Processing..." : "Login",
-              height: 40,
+              height: 50,
               onPressed: password.isNotEmpty && email.isNotEmpty ? () async => onLogin() : null,
             ),
-            const SizedBox(height: 20),
-
-            // Register button
-            IUIButtons.solid(
-                label: "Register",
-                height: 40,
-                onPressed: () async {
-                  Modular.to.push(MaterialPageRoute(builder: (context) => const RegisterScreen()));
-                }),
 
             // Error message
             if (errorMessage != null)
@@ -95,43 +71,75 @@ class _LoginScreenState extends State<LoginScreen> {
                 errorMessage!,
                 color: Colors.red,
               ),
-            const SizedBox(height: 100),
+            const SizedBox(height: 20),
 
+            // Register button
+            GestureDetector(
+              onTap: () {
+                Modular.to.push(MaterialPageRoute(builder: (context) => const RegisterScreen()));
+              },
+              child: Row(
+                children: [
+                  IUIText.heading("Dont have an account?", color: Colors.white24, fontsize: 14),
+                  const SizedBox(width: 10),
+                  SizedBox(
+                      width: 100,
+                      child: IUIText.heading(
+                        "Sign up",
+                        color: primaryColor,
+                        fontWeight: FontWeight.w700,
+                        fontsize: 14,
+                      ))
+                ],
+              ),
+            ),
+            const SizedBox(height: 50),
+
+            // Divider
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                ///
-                /// Hide APPLE Sign in for now
-                RemoteConfigVisibilityWidget(
-                  rmKey: "enableAppleSignIn",
-                  defaultValue: false,
-                  child: PlatformLoginButton(
-                    "assets/images/apple-logo.png",
-                    ontap: () {},
+                const SizedBox(
+                  width: 150,
+                  child: Divider(
+                    color: Colors.white24,
+                    height: 1,
                   ),
                 ),
-                const SizedBox(width: 20),
-
-                // GOOGLE Sign in
-
-                PlatformLoginButton(
-                  "assets/images/gmail.png",
-                  ontap: () async {
-                    final state = await controller.signInWithGoogle();
-                    if (state is AuthErrorState) {
-                      errorMessage = state.errorMessage;
-                      return;
-                    }
-                    if (state is LoginSuccessState) {
-                      Modular.to.navigate('/home');
-                    }
-                  },
+                IUIText.heading(
+                  "Or",
+                  color: Colors.white24,
+                  fontsize: 15,
+                ),
+                const SizedBox(
+                  width: 150,
+                  child: Divider(
+                    color: Colors.white24,
+                    height: 1,
+                  ),
                 ),
               ],
             ),
+
+            const SizedBox(height: 45),
+
+            // GOOGLE Sign in button
+            PlatformLoginButton(
+              "assets/images/google.png",
+              ontap: () async {
+                final state = await controller.signInWithGoogle();
+                if (state is AuthErrorState) {
+                  errorMessage = state.errorMessage;
+                  return;
+                }
+                if (state is LoginSuccessState) {
+                  Modular.to.navigate('/home');
+                }
+              },
+            ),
           ],
-        ),
-      ).paddingOnly(left: 20, right: 20),
+        ).paddingOnly(left: 20, right: 20),
+      ),
     );
   }
 

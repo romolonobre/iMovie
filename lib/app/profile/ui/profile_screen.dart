@@ -71,13 +71,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
               // TODO: ADD FEATURE DO EDIT
               // Read only User name
               ImovieTextformField(
+                label: "Full name",
                 initialValue: user?.name ?? '',
                 isReadOnly: true,
               ).paddingOnly(left: 20, right: 20),
 
+              const SizedBox(height: 15),
+
               // TODO: ADD FEATURE DO EDIT
               // Read only Email
               ImovieTextformField(
+                label: "Email",
                 isReadOnly: true,
                 initialValue: user?.email ?? '',
               ).paddingOnly(left: 20, right: 20),
