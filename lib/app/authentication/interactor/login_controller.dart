@@ -35,4 +35,9 @@ class LoginController {
   }
 
   AppUser? getUser() => service.getCurrentUser();
+
+  Future<LoginState> signInWithGoogle() async {
+    final result = await service.signInWithGoogle();
+    return result;
+  }
 }

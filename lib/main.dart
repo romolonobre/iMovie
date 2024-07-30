@@ -6,6 +6,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:imovie_app/app/app.dart';
 import 'package:imovie_app/app/app_module.dart';
 import 'package:imovie_app/app/commons/app_services/error_handle.dart';
+import 'package:imovie_app/app/commons/push_notifications/push_notifications.dart';
 import 'package:imovie_app/firebase_options.dart';
 
 import 'app/commons/app_services/utils.dart';
@@ -15,12 +16,11 @@ import 'app/commons/remote_config/remote_config.dart';
 void main() async {
   runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
+    Modular.setNavigatorKey(navigatorKey);
     await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
     await CustomRemoteConfig().initialize();
-
-    Modular.setNavigatorKey(navigatorKey);
-
     await CustomFirebaseCrashlitics().initialize();
+    await PushNotifications.initialize();
 
     runApp(
       ModularApp(

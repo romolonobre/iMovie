@@ -10,5 +10,6 @@ abstract class AuthService {
   Future<void> updateProfileImage(String image);
   AppUser? getCurrentUser();
   Future<void> sendEmailVerification();
+  Future<LoginState> signInWithGoogle();
   Future<LoginState> signOut();
 }

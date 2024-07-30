@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:imovie_app/app/authentication/data/service/auth_service.dart';
 import 'package:imovie_app/app/commons/entities/app_user.dart';
 
@@ -112,5 +113,24 @@ class FirebaseAuthService implements AuthService {
     final hasDigits = password.contains(RegExp(r'\d'));
 
     return password.length >= minLength && hasUppercase && hasLowercase && hasDigits;
+  }
+
+  @override
+  Future<LoginState> signInWithGoogle() async {
+    try {
+      GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+      GoogleSignInAuthentication googleAuth = await googleUser!.authentication;
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+
+      await _auth.signInWithCredential(credential);
+
+      return LoginSuccessState();
+    } catch (e) {
+      return AuthErrorState(errorMessage: e.toString());
+    }
   }
 }

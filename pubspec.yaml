@@ -26,6 +26,8 @@ dependencies:
   firebase_auth: ^4.17.8
   image_picker: ^1.1.2
   flutter_animate: ^4.5.0
+  onesignal_flutter: ^5.2.2
+  google_sign_in: ^6.2.1
   
 
 
