@@ -36,10 +36,10 @@ class _SplashScreenState extends State<SplashScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IUIText.title(
-                  "IMovie",
+                  "FindIt",
                   color: primaryColor,
-                  fontsize: 50,
-                  fontWeight: FontWeight.w800,
+                  fontsize: 55,
+                  fontWeight: FontWeight.w700,
                 ).animate().animate().fade().scale(delay: 500.ms)
               ],
             ),

@@ -37,7 +37,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               children: [
                 const SizedBox(height: 150),
                 IUIText.title(
-                  "Register",
+                  "Sign up",
                   fontWeight: FontWeight.w500,
                   fontsize: 30,
                 ),
@@ -76,14 +76,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                 // Register button
                 IUIButtons.solid(
-                  label: isLoading ? "Processing..." : "Register",
+                  label: isLoading ? "Processing..." : "Sign up",
                   height: 50,
                   onPressed: hasEmptyFields ? null : () async => onRegister(),
                 ),
 
                 if (errorMessage != null)
                   IUIText.heading(
-                    errorMessage!,
+                    errorMessage ?? '',
                     color: Colors.red,
                   )
               ],

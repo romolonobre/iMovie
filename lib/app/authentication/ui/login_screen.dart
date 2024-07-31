@@ -35,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             const SizedBox(height: 100),
             IUIText.title(
-              "Login",
+              "Sign in",
               fontWeight: FontWeight.w500,
               fontsize: 39,
             ),
@@ -60,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
             // Login button
             IUIButtons.solid(
-              label: isLoading ? "Processing..." : "Login",
+              label: isLoading ? "Processing..." : "Sign in",
               height: 50,
               onPressed: password.isNotEmpty && email.isNotEmpty ? () async => onLogin() : null,
             ),
