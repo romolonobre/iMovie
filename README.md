@@ -37,8 +37,9 @@ This app provides users with details, reviews, videos, external links to watch s
 
  # Screens
 
-## Splasscreen - Login - Register
-<img width="958" alt="Screenshot 2024-07-30 at 12 37 21" src="https://github.com/user-attachments/assets/1b42f75e-f792-4c16-a016-122774595e9f">
+## Splasscreen - Sign in - Sign up
+<img width="967" alt="Screenshot 2024-07-31 at 11 42 26" src="https://github.com/user-attachments/assets/30ad785d-c608-4e23-b1f6-b425531f65d3">
+
 
  
 
