@@ -1,5 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:imovie_app/app/commons/app_services/helper.dart';
+import 'package:imovie_app/app/_commons/app_services/helper.dart';
 
 import '../interactor/entities/cast.dart';
 import '../interactor/entities/genres.dart';

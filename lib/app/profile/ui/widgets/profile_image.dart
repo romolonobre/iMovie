@@ -5,10 +5,10 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../authentication/interactor/login_controller.dart';
-import '../../../commons/app_services/utils.dart';
-import '../../../commons/entities/app_user.dart';
-import '../../../commons/imovie_ui/iui_bottom_sheet.dart';
-import '../../../commons/imovie_ui/iui_text.dart';
+import '../../../_commons/app_services/utils.dart';
+import '../../../_commons/entities/app_user.dart';
+import '../../../_commons/imovie_ui/iui_bottom_sheet.dart';
+import '../../../_commons/imovie_ui/iui_text.dart';
 import 'image_picker_option.dart';
 
 class ProfileAvatar extends StatefulWidget {

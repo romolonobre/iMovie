@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:imovie_app/app/commons/extensions/extensions.dart';
+import 'package:imovie_app/app/_commons/extensions/extensions.dart';
 
-import '../../../commons/imovie_ui/iui_loader.dart';
-import '../../../commons/imovie_ui/iui_text.dart';
+import '../../../_commons/imovie_ui/iui_loader.dart';
+import '../../../_commons/imovie_ui/iui_text.dart';
 import '../../../home/interactor/entities/movie.dart';
 import '../../data/movie_details_service.dart';
 import '../../interactor/states/movie_details_state.dart';

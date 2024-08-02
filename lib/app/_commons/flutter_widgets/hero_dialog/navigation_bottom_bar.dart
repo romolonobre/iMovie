@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:imovie_app/app/commons/app_services/utils.dart';
-import 'package:imovie_app/app/commons/remote_config/remote_config.dart';
+import 'package:imovie_app/app/_commons/app_services/utils.dart';
+import 'package:imovie_app/app/_commons/remote_config/remote_config.dart';
 
 class NavigationBottomBar extends StatefulWidget {
   final List<Widget> screens;
@@ -22,9 +22,9 @@ class _NavigationBottomBarState extends State<NavigationBottomBar> {
             navigationBarTheme: NavigationBarThemeData(
               indicatorColor: primaryColor,
               backgroundColor: Colors.black,
-              labelTextStyle: MaterialStateProperty.resolveWith<TextStyle?>(
+              labelTextStyle: WidgetStateProperty.resolveWith<TextStyle?>(
                 (states) {
-                  if (states.contains(MaterialState.selected)) {
+                  if (states.contains(WidgetState.selected)) {
                     return const TextStyle(
                       color: Colors.white,
                       fontSize: 12,

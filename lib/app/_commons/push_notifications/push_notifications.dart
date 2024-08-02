@@ -1,5 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:imovie_app/app/commons/app_services/env.dart';
+import 'package:imovie_app/app/_commons/app_services/env.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 class PushNotifications {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../commons/app_services/utils.dart';
-import '../../commons/imovie_ui/iui_buttons.dart';
+import '../../_commons/app_services/utils.dart';
+import '../../_commons/imovie_ui/iui_buttons.dart';
 import '../../home/interactor/entities/movie.dart';
 import '../data/movie_details_service.dart';
 import 'widgets/cast_section.dart';

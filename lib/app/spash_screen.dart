@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:imovie_app/app/authentication/interactor/login_controller.dart';
-import 'package:imovie_app/app/commons/app_services/utils.dart';
-import 'package:imovie_app/app/commons/imovie_ui/iui_text.dart';
+import 'package:imovie_app/app/_commons/app_services/utils.dart';
+import 'package:imovie_app/app/_commons/imovie_ui/iui_text.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

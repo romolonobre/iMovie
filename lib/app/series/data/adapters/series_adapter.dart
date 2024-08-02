@@ -1,8 +1,8 @@
-import 'package:imovie_app/app/commons/app_services/entity_adaptor.dart';
+import 'package:imovie_app/app/_commons/app_services/entity_adaptor.dart';
 import 'package:imovie_app/app/series/interactor/entities/series.dart';
 
-import '../../../commons/app_services/helper.dart';
-import '../../../commons/app_services/utils.dart';
+import '../../../_commons/app_services/helper.dart';
+import '../../../_commons/app_services/utils.dart';
 
 class SerieAdapter extends EntityAdaptor<Serie> {
   @override

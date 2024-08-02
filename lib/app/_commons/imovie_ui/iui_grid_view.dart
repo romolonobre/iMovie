@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:imovie_app/app/commons/extensions/extensions.dart';
+import 'package:imovie_app/app/_commons/extensions/extensions.dart';
 
 class IUIGridView extends StatelessWidget {
   final int? crossAxisCount;

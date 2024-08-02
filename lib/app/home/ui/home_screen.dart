@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../commons/app_services/utils.dart';
+import '../../_commons/app_services/utils.dart';
 import 'widgets/movies_grid_section.dart';
 
 class HomeScreen extends StatefulWidget {

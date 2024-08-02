@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:imovie_app/app/commons/extensions/extensions.dart';
+import 'package:imovie_app/app/_commons/extensions/extensions.dart';
 import 'package:imovie_app/app/movie_details/interactor/entities/review.dart';
 
 import '../imovie_ui/iui_text.dart';
