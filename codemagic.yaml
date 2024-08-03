@@ -17,8 +17,8 @@ workflows:
           flutter packages pub get
       - name: Build AAB with Flutter
         script: | 
-          BUILD_NUMBER=$(($(google-play get-latest-build-number --package-name "$PACKAGE_NAME" --tracks="$GOOGLE_PLAY_TRACK") + 1))      
-          flutter build appbundle --release \
+           fullVersion=$(echo | grep -i -e "version: " pubspec.yaml) buildName=$(echo "$fullVersion" | cut -d " " -f 2 | cut -d "+" -f 1) buildNumber=$(echo "$fullVersion" | cut -d "+" -f 2 )  
+           flutter build appbundle --release \
             --build-name=1.0.$BUILD_NUMBER \
             --build-number=$BUILD_NUMBER \
             --dart-define=DEFINE_API_URL=$DEFINE_API_URL \
