@@ -11,7 +11,7 @@ class APIRequest {
   final String baseUrl = Env.apiBaseUrl;
 
   final Map<String, String> requestHeaders = {
-    'Authorization': Env.token,
+    'Authorization': "Bearer ${Env.token}",
     'accept': 'application/json',
   };
 
