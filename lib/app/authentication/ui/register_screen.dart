@@ -83,7 +83,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                 if (errorMessage != null)
                   IUIText.heading(
-                    errorMessage ?? '',
+                    errorMessage!,
                     color: Colors.red,
                   )
               ],
