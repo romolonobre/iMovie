@@ -7,6 +7,7 @@ workflows:
         - android_reference
       groups:
         - google_play
+        - dart-define
       flutter: stable
     scripts:
       - name: Set up local.properties
@@ -20,7 +21,10 @@ workflows:
           BUILD_NUMBER=$(($(google-play get-latest-build-number --package-name "$PACKAGE_NAME" --tracks="$GOOGLE_PLAY_TRACK") + 1))      
           flutter build appbundle --release \
             --build-name=1.0.$BUILD_NUMBER \
-            --build-number=$BUILD_NUMBER
+            --build-number=$BUILD_NUMBER \
+            --dart-define=DEFINE_API_URL=$DEFINE_API_URL \
+            --dart-define=DEFINE_ONE_SIGNAL_API_KEY=$DEFINE_ONE_SIGNAL_API_KEY \
+            --dart-define=DEFINE_TOKEN=$DEFINE_TOKEN 
     artifacts:
       - build/**/outputs/**/*.aab
       - build/**/outputs/**/mapping.txt
