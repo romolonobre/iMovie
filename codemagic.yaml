@@ -6,7 +6,6 @@ workflows:
       android_signing:
         - android_reference
       groups:
-        - google_play
         - dart-define
       flutter: stable
     scripts:
