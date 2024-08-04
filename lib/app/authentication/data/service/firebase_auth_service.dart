@@ -1,7 +1,9 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:imovie_app/app/authentication/data/service/auth_service.dart';
 import 'package:imovie_app/app/_commons/entities/app_user.dart';
+import 'package:imovie_app/app/authentication/data/service/auth_service.dart';
 
 import '../../../_commons/app_services/error_handle.dart';
 import '../../interactor/login_state.dart';
@@ -119,6 +121,7 @@ class FirebaseAuthService implements AuthService {
   Future<LoginState> signInWithGoogle() async {
     try {
       GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      log('fdfdfd');
 
       GoogleSignInAuthentication googleAuth = await googleUser!.authentication;
       final credential = GoogleAuthProvider.credential(
@@ -126,7 +129,9 @@ class FirebaseAuthService implements AuthService {
         idToken: googleAuth.idToken,
       );
 
-      await _auth.signInWithCredential(credential);
+      final a = await _auth.signInWithCredential(credential);
+
+      log(a.credential?.token.toString() ?? 'dsdsdsds');
 
       return LoginSuccessState();
     } catch (e) {
