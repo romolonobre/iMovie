@@ -5,6 +5,7 @@ import 'package:imovie_app/app/spash_screen.dart';
 
 import 'authentication/data/service/firebase_auth_service.dart';
 import 'authentication/interactor/login_controller.dart';
+import 'biometric_auth_screen.dart';
 import 'home/home_module.dart';
 import 'series/data/series_datasource.dart';
 import 'series/data/series_service.dart';
@@ -25,6 +26,7 @@ class AppModule extends Module {
   @override
   void routes(r) {
     r.child("/splashscreen", child: (context) => const SplashScreen());
+    r.child("/biometrics/", child: (context) => const BiometricAuthScreen());
     r.module('/home', module: HomeModule());
     r.module('/login', module: LoginModule());
   }
