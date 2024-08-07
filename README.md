@@ -27,7 +27,7 @@ This app provides users with details, reviews, videos, external links to watch s
 - flutter_animate
 - onesignal_flutter
 - google_sign_in
-- local_auth: ^2.2.0
+- local_auth
 
 ## State Management
 - ValueNotifier + State Pattern
