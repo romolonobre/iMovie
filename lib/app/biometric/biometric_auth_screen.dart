@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:imovie_app/app/_commons/imovie_ui/iui_buttons.dart';
-import 'package:local_auth/local_auth.dart';
+import 'package:imovie_app/app/_commons/extensions/extensions.dart';
+import 'package:imovie_app/app/_commons/imovie_ui/iui_snackbar.dart';
+import 'package:imovie_app/app/_commons/imovie_ui/iui_text.dart';
+import 'package:imovie_app/app/biometric/biometric_auth_state.dart';
+import 'package:imovie_app/app/biometric/handle_biometric_auth.dart';
 import 'package:lottie/lottie.dart';
 
 import '../_commons/app_services/utils.dart';
-import '../_commons/imovie_ui/iui_snackbar.dart';
+import '../_commons/imovie_ui/iui_buttons.dart';
 
 class BiometricAuthScreen extends StatefulWidget {
   const BiometricAuthScreen({super.key});
@@ -16,38 +18,28 @@ class BiometricAuthScreen extends StatefulWidget {
 }
 
 class _BiometricAuthScreenState extends State<BiometricAuthScreen> {
-  final LocalAuthentication _authentication = LocalAuthentication();
-  String errorMessage = '';
+  final _auth = HandleBiometricAuthetication();
 
-  Future<void> authenticate() async {
-    try {
-      bool biometricsAvailable = await _checkBiometricsAvailability();
-      if (biometricsAvailable) {
-        bool authenticationSuccessful = await _authenticateWithBiometrics();
-        if (!authenticationSuccessful) return;
-        Modular.to.navigate('/home');
-      }
-    } on PlatformException catch (e) {
-      setState(() => errorMessage = e.message ?? "An unexpected error has occurred");
-    }
+  @override
+  void initState() {
+    super.initState();
+    Future(() => _handleAuht());
   }
 
-  Future<bool> _authenticateWithBiometrics() async {
-    return await _authentication.authenticate(
-      localizedReason: "Please authenticate to access the app",
-      options: const AuthenticationOptions(
-        useErrorDialogs: true,
-      ),
-    );
-  }
-
-  Future<bool> _checkBiometricsAvailability() async {
-    bool canCheckBiometrics = await _authentication.canCheckBiometrics;
-    if (!canCheckBiometrics) {
-      setState(() => errorMessage = "This device doesn't support biometrics or biometrics is not enabled.");
-      return false;
+  _handleAuht() async {
+    final state = await _auth.authenticateWithBiometrics();
+    if (!mounted) return;
+    if (state is BiometricsAuthErrorState) {
+      IUISnackbar.show(
+        context,
+        message: state.errorMessage,
+        isError: true,
+      );
+      return;
     }
-    return true;
+    if (state is BiometricsAuthSucessState) {
+      Modular.to.navigate('/home');
+    }
   }
 
   @override
@@ -58,17 +50,40 @@ class _BiometricAuthScreenState extends State<BiometricAuthScreen> {
         width: double.infinity,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const SizedBox(height: 100),
+
+            // Lottie animation
             LottieBuilder.asset(
               'assets/images/biometric.json',
               height: 200,
             ),
+            const Spacer(),
+
+            // Button to manually authenticate using Biometrics if automatic authentication fails
             IUIButtons.text(
-                label: "Tap to Log in with Biometrics",
-                width: MediaQuery.sizeOf(context).width - 100,
-                onPressed: () async => await authenticate()),
-            if (errorMessage.isNotEmpty) IUISnackbar.show(context, message: errorMessage),
+              label: "Tap to Log in with Biometrics",
+              width: MediaQuery.sizeOf(context).width - 100,
+              onPressed: () async => await _handleAuht(),
+            ),
+
+            // Button to navigate to the login screen if there is an issue with Biometrics
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                IUIText.heading("Or Sign in again", fontsize: 13),
+                const SizedBox(width: 10),
+                InkWell(
+                  onTap: () async => Modular.to.navigate('/login'),
+                  child: IUIText.heading(
+                    "Sign in",
+                    color: primaryColor,
+                    fontsize: 15,
+                  ),
+                ),
+              ],
+            ).paddingOnly(bottom: 40)
           ],
         ),
       ),
