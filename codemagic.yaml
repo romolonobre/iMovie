@@ -1,0 +1,40 @@
+workflows:
+  android-workflow:
+    name: Android Workflow
+    max_build_duration: 120
+    environment:
+      android_signing:
+        - android_reference
+      groups:
+        - dart-define
+      flutter: stable
+    scripts:
+      - name: Set up local.properties
+        script: | 
+          echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
+      - name: Get Flutter packages
+        script: | 
+          flutter packages pub get
+      - name: Build AAB with Flutter
+        script: | 
+           fullVersion=$(echo | grep -i -e "version: " pubspec.yaml) buildName=$(echo "$fullVersion" | cut -d " " -f 2 | cut -d "+" -f 1) buildNumber=$(echo "$fullVersion" | cut -d "+" -f 2 )  
+           flutter build appbundle --release \
+            --build-name=1.0.$BUILD_NUMBER \
+            --build-number=$BUILD_NUMBER \
+            --dart-define=DEFINE_API_URL=$DEFINE_API_URL \
+            --dart-define=DEFINE_ONE_SIGNAL_API_KEY=$DEFINE_ONE_SIGNAL_API_KEY \
+            --dart-define=DEFINE_TOKEN=$DEFINE_TOKEN 
+    artifacts:
+      - build/**/outputs/**/*.aab
+      - build/**/outputs/**/mapping.txt
+      - flutter_drive.log
+    publishing:
+      email:
+        recipients:
+          - romoloferreira@icloud.com
+        notify:
+          success: true
+          failure: false
+ 
+                       
+

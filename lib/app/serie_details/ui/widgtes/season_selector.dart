@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:imovie_app/app/commons/extensions/extensions.dart';
+import 'package:imovie_app/app/_commons/extensions/extensions.dart';
 
-import '../../../commons/flutter_widgets/hero_dialog/popup_card_tile.dart';
-import '../../../commons/imovie_ui/iui_text.dart';
+import '../../../_commons/flutter_widgets/hero_dialog/popup_card_tile.dart';
+import '../../../_commons/imovie_ui/iui_text.dart';
 import '../../../series/interactor/entities/serie_details.dart';
 import '../../../series/interactor/serie_controller.dart';
 import '../../../series/interactor/series_states.dart';

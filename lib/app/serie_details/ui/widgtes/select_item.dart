@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../../commons/imovie_ui/iui_text.dart';
+import '../../../_commons/imovie_ui/iui_text.dart';
 
 class SelectItem extends StatelessWidget {
   final String label;

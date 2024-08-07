@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:imovie_app/app/authentication/data/firebase_auth_service.dart';
-import 'package:imovie_app/app/commons/app_services/utils.dart';
-import 'package:imovie_app/app/commons/imovie_ui/iui_text.dart';
+import 'package:imovie_app/app/_commons/app_services/utils.dart';
+import 'package:imovie_app/app/_commons/imovie_ui/iui_text.dart';
+import 'package:imovie_app/app/authentication/interactor/login_controller.dart';
+
+import '_commons/app_services/cache.dart';
+import '_commons/entities/app_user.dart';
+import '_commons/push_notifications/push_notifications.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -13,16 +17,28 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  final service = Modular.get<FirebaseAuthService>();
+  final service = Modular.get<LoginController>();
 
   @override
   void initState() {
     super.initState();
-    final user = service.getCurrentUser();
-    //
-    // Check if user is logged or not, if user is null it means the user is logged out
-    final String navigatoPath = user != null ? "home" : "login";
-    Future.delayed(const Duration(seconds: 2)).then((value) => Modular.to.navigate('/$navigatoPath/'));
+    final user = service.getUser();
+    handleNavigation(user);
+    Future(() async => await PushNotifications.initialize());
+  }
+
+  void handleNavigation(AppUser? user) {
+    bool isLogged = user != null;
+    final String navigatoPath = isLogged ? "home" : "login";
+    bool isBiometricsAuthEnabled = Cache().isBiometricsEnabled() ?? false;
+
+    if (!isLogged) {
+      Modular.to.navigate('/login/');
+    } else if (!isBiometricsAuthEnabled) {
+      Future.delayed(const Duration(seconds: 2)).then((_) => Modular.to.navigate('/$navigatoPath/'));
+    } else {
+      Modular.to.navigate('/biometrics/');
+    }
   }
 
   @override
@@ -36,10 +52,10 @@ class _SplashScreenState extends State<SplashScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IUIText.title(
-                  "IMovie",
+                  "FindIt",
                   color: primaryColor,
-                  fontsize: 50,
-                  fontWeight: FontWeight.w800,
+                  fontsize: 55,
+                  fontWeight: FontWeight.w700,
                 ).animate().animate().fade().scale(delay: 500.ms)
               ],
             ),

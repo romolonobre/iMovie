@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:imovie_app/app/commons/extensions/extensions.dart';
+import 'package:imovie_app/app/_commons/extensions/extensions.dart';
 
-import '../../../commons/imovie_ui/iui_text.dart';
+import '../../../_commons/imovie_ui/iui_text.dart';
 import '../../interactor/entities/serie_season.dart';
 
 class EpisodeDetailsExpansionTile extends StatefulWidget {

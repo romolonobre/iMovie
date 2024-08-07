@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:imovie_app/app/commons/extensions/extensions.dart';
-import 'package:imovie_app/app/commons/imovie_ui/iui_text.dart';
+import 'package:imovie_app/app/_commons/extensions/extensions.dart';
+import 'package:imovie_app/app/_commons/imovie_ui/iui_text.dart';
 import 'package:imovie_app/app/serie_details/interactor/serie_details_controller.dart';
 import 'package:imovie_app/app/serie_details/interactor/serie_details_state.dart';
 
-import '../../../commons/flutter_widgets/video_player_screen.dart';
+import '../../../_commons/flutter_widgets/video_player_screen.dart';
 
 class SeasonVideoSection extends StatefulWidget {
   final String id;

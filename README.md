@@ -2,14 +2,18 @@
 
 ## Movie and TV Series App
 
-This app provides users with details, reviews, videos, external links to watch selected TV series on platforms like Amazon, and much more. The app utilizes Firebase for authentication, remote configuration, and crash reporting, and the TMDB Movies API for fetching data.
+This app provides users with details, reviews, videos, external links to watch selected TV series on platforms like Amazon, and much more. The app utilizes Firebase for authentication, remote configuration, and crash reporting, and the TMDB Movies API for fetching data. Additionally, the app integrates OneSignal for push notifications and supports multiple sign-in methods, including email/password and Google sign-in.
 
 ## Features
-- Movie and TV Series Details: View detailed information about movies and TV series.
-- Reviews: Read reviews from other users.
-- Watch Videos: Watch trailers and other related videos.
-- External Links: Access external links to watch selected TV series on other platforms (e.g., Amazon).
-
+- Movie and TV Series Details: View detailed information about movies and TV series
+- Reviews: Read reviews from other users
+- Watch Videos: Watch trailers and other related videos
+- External Links: Access external links to watch selected TV series on other platforms (e.g., Amazon)
+- Push Notifications
+- Biometric authetication 
+- Sign-In: Sign in to the app using your email and password
+- Google Sign-In: Easily sign in using your Google account.
+  
 
 
 ## Important Packages Used    
@@ -20,6 +24,10 @@ This app provides users with details, reviews, videos, external links to watch s
 - image_picker
 - flutter_modular
 - youtube_player_flutter
+- flutter_animate
+- onesignal_flutter
+- google_sign_in
+- local_auth
 
 ## State Management
 - ValueNotifier + State Pattern
@@ -31,9 +39,11 @@ This app provides users with details, reviews, videos, external links to watch s
 
  # Screens
 
-## Splasscreen - Login - Register
+## Splasscreen - Sign in - Sign up
+<img width="967" alt="Screenshot 2024-07-31 at 11 42 26" src="https://github.com/user-attachments/assets/30ad785d-c608-4e23-b1f6-b425531f65d3">
+
+
  
-<img width="909" alt="Screenshot 2024-07-24 at 12 31 08" src="https://github.com/user-attachments/assets/d77ca509-952e-4b63-9a9e-124cbfd7b6c5">
 
 ## Home(movies) - Movies details -Series - Series details 
 

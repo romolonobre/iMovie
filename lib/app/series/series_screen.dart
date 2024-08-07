@@ -1,12 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:imovie_app/app/commons/extensions/extensions.dart';
+import 'package:imovie_app/app/_commons/extensions/extensions.dart';
 
-import '../commons/app_services/utils.dart';
-import '../commons/imovie_ui/iui_grid_view.dart';
-import '../commons/imovie_ui/iui_loader.dart';
-import '../commons/imovie_ui/iui_text.dart';
+import '../_commons/app_services/utils.dart';
+import '../_commons/imovie_ui/iui_grid_view.dart';
+import '../_commons/imovie_ui/iui_loader.dart';
+import '../_commons/imovie_ui/iui_text.dart';
 import 'interactor/serie_controller.dart';
 import 'interactor/series_states.dart';
 import 'ui/widgets/series_carousel_widge.dart';

@@ -1,24 +1,23 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
-import 'package:imovie_app/app/authentication/data/firebase_auth_service.dart';
-
-import '../../commons/entities/app_user.dart';
+import '../../_commons/entities/app_user.dart';
+import '../data/service/auth_service.dart';
 import 'login_state.dart';
 
 class LoginController {
-  final FirebaseAuthService service;
+  final AuthService service;
   LoginController(this.service);
 
   // This controller utilizes the State Pattern to return
   // the appropriate state based on the response from Firebase.
 
-  Future<LoginState> loginWithFirebase({required String email, required String password}) async {
-    final result = await service.loginWithFirebase(email, password);
+  Future<LoginState> login({required String email, required String password}) async {
+    final result = await service.login(email, password);
     return result;
   }
 
-  Future<LoginState> registerWithFirebase({required String usrname, required String password}) async {
-    final result = await service.registerWithFirebase(usrname, password);
+  Future<LoginState> register({required String usrname, required String password}) async {
+    final result = await service.register(usrname, password);
     return result;
   }
 
@@ -36,4 +35,9 @@ class LoginController {
   }
 
   AppUser? getUser() => service.getCurrentUser();
+
+  Future<LoginState> signInWithGoogle() async {
+    final result = await service.signInWithGoogle();
+    return result;
+  }
 }

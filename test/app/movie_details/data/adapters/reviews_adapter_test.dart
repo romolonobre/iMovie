@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:imovie_app/app/commons/app_services/utils.dart';
+import 'package:imovie_app/app/_commons/app_services/utils.dart';
 import 'package:imovie_app/app/movie_details/data/adapters/reviews_adapter.dart';
 
 void main() {
