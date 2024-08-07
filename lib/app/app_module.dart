@@ -25,7 +25,7 @@ class AppModule extends Module {
 
   @override
   void routes(r) {
-    r.child("/splashscreen", child: (context) => const SplashScreen());
+    r.child("/splashscreen/", child: (context) => const SplashScreen());
     r.child("/biometrics/", child: (context) => BiometricAuthScreen(naviagtionPath: r.args.data));
     r.module('/home', module: HomeModule());
     r.module('/login', module: LoginModule());
