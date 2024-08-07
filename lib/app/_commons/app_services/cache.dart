@@ -1,12 +1,19 @@
+import 'package:shared_preferences/shared_preferences.dart';
+
 import '../../series/interactor/entities/serie_details.dart';
 
 class Cache {
   Cache._internal();
 
   static final Cache _instance = Cache._internal();
+  late SharedPreferences prefs;
 
   factory Cache() {
     return _instance;
+  }
+
+  Future init() async {
+    prefs = await SharedPreferences.getInstance();
   }
 
   // Cache storage for details
@@ -20,5 +27,13 @@ class Cache {
   // Method to set details in cache
   void setDetails(String id, SerieDetails details) {
     _detailsCache[id] = details;
+  }
+
+  Future<void> setBiometrics(bool isEnable) async {
+    prefs.setBool("biometric", isEnable);
+  }
+
+  bool? isBiometricsEnabled() {
+    return prefs.getBool("biometric");
   }
 }
