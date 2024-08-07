@@ -17,18 +17,19 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  final service = Modular.get<LoginController>();
+  final controller = Modular.get<LoginController>();
 
   @override
   void initState() {
     super.initState();
-    final user = service.getUser();
+    final user = controller.getUser();
     handleNavigation(user);
     Future(() async => await PushNotifications.initialize());
   }
 
   void handleNavigation(AppUser? user) {
-    bool isLogged = user != null;
+    bool isLogged = controller.isLogged();
+
     final String navigatoPath = isLogged ? "home" : "login";
     bool isBiometricsAuthEnabled = Cache().isBiometricsEnabled() ?? false;
 

@@ -40,4 +40,6 @@ class LoginController {
     final result = await service.signInWithGoogle();
     return result;
   }
+
+  bool isLogged() => service.getCurrentUser() != null;
 }
