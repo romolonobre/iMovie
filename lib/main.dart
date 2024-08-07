@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:imovie_app/app/_commons/app_services/cache.dart';
 import 'package:imovie_app/app/_commons/app_services/error_handle.dart';
-import 'package:imovie_app/app/_commons/push_notifications/push_notifications.dart';
 import 'package:imovie_app/app/app.dart';
 import 'package:imovie_app/app/app_module.dart';
 import 'package:imovie_app/firebase_options.dart';
@@ -21,7 +20,7 @@ void main() async {
     await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
     await CustomRemoteConfig().initialize();
     await CustomFirebaseCrashlitics().initialize();
-    await PushNotifications.initialize();
+
     await Cache().init();
 
     runApp(

@@ -121,7 +121,6 @@ class FirebaseAuthService implements AuthService {
   Future<LoginState> signInWithGoogle() async {
     try {
       GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-      log('fdfdfd');
 
       GoogleSignInAuthentication googleAuth = await googleUser!.authentication;
       final credential = GoogleAuthProvider.credential(

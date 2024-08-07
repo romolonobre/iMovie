@@ -11,7 +11,8 @@ import '../_commons/app_services/utils.dart';
 import '../_commons/imovie_ui/iui_buttons.dart';
 
 class BiometricAuthScreen extends StatefulWidget {
-  const BiometricAuthScreen({super.key});
+  final String? naviagtionPath;
+  const BiometricAuthScreen({super.key, this.naviagtionPath});
 
   @override
   State<BiometricAuthScreen> createState() => _BiometricAuthScreenState();
@@ -38,7 +39,7 @@ class _BiometricAuthScreenState extends State<BiometricAuthScreen> {
       return;
     }
     if (state is BiometricsAuthSucessState) {
-      Modular.to.navigate('/home');
+      Modular.to.navigate('/${widget.naviagtionPath ?? 'home'}');
     }
   }
 

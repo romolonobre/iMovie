@@ -7,6 +7,7 @@ import 'package:imovie_app/app/authentication/interactor/login_controller.dart';
 
 import '_commons/app_services/cache.dart';
 import '_commons/entities/app_user.dart';
+import '_commons/push_notifications/push_notifications.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -23,6 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     final user = service.getUser();
     handleNavigation(user);
+    Future(() async => await PushNotifications.initialize());
   }
 
   void handleNavigation(AppUser? user) {
