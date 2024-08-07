@@ -10,6 +10,7 @@ This app provides users with details, reviews, videos, external links to watch s
 - Watch Videos: Watch trailers and other related videos
 - External Links: Access external links to watch selected TV series on other platforms (e.g., Amazon)
 - Push Notifications
+- Biometric authetication 
 - Sign-In: Sign in to the app using your email and password
 - Google Sign-In: Easily sign in using your Google account.
   
@@ -26,6 +27,7 @@ This app provides users with details, reviews, videos, external links to watch s
 - flutter_animate
 - onesignal_flutter
 - google_sign_in
+- local_auth: ^2.2.0
 
 ## State Management
 - ValueNotifier + State Pattern
