@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:imovie_app/app/authentication/interactor/login_controller.dart';
 import 'package:imovie_app/app/_commons/app_services/utils.dart';
 import 'package:imovie_app/app/_commons/imovie_ui/iui_text.dart';
+import 'package:imovie_app/app/authentication/interactor/login_controller.dart';
+
+import '_commons/app_services/cache.dart';
+import '_commons/entities/app_user.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -19,10 +22,21 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     final user = service.getUser();
-    //
-    // Check if user is logged or not, if user is null it means the user is logged out
-    final String navigatoPath = user != null ? "home" : "login";
-    Future.delayed(const Duration(seconds: 2)).then((value) => Modular.to.navigate('/$navigatoPath/'));
+    handleNavigation(user);
+  }
+
+  void handleNavigation(AppUser? user) {
+    bool isLogged = user != null;
+    final String navigatoPath = isLogged ? "home" : "login";
+    bool isBiometricsAuthEnabled = Cache().isBiometricsEnabled() ?? false;
+
+    if (!isLogged) {
+      Modular.to.navigate('/login/');
+    } else if (!isBiometricsAuthEnabled) {
+      Future.delayed(const Duration(seconds: 2)).then((_) => Modular.to.navigate('/$navigatoPath/'));
+    } else {
+      Modular.to.navigate('/biometrics/');
+    }
   }
 
   @override
