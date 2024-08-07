@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:imovie_app/app/_commons/app_services/utils.dart';
-import 'package:imovie_app/app/_commons/imovie_ui/iui_text.dart';
-import 'package:imovie_app/app/authentication/interactor/login_controller.dart';
 
 import '_commons/app_services/cache.dart';
+import '_commons/app_services/utils.dart';
 import '_commons/entities/app_user.dart';
+import '_commons/imovie_ui/iui_text.dart';
 import '_commons/push_notifications/push_notifications.dart';
+import 'authentication/interactor/login_controller.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

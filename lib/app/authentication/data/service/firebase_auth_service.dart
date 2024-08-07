@@ -2,11 +2,11 @@ import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:imovie_app/app/_commons/entities/app_user.dart';
-import 'package:imovie_app/app/authentication/data/service/auth_service.dart';
 
 import '../../../_commons/app_services/error_handle.dart';
+import '../../../_commons/entities/app_user.dart';
 import '../../interactor/login_state.dart';
+import 'auth_service.dart';
 
 class FirebaseAuthService implements AuthService {
   final _auth = FirebaseAuth.instance;
