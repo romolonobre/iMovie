@@ -131,7 +131,7 @@ class MoviesGridSection extends StatelessWidget {
                           )
                         ],
                       ),
-                    );
+                    ).paddingOnly(left: index == 0 ? 20 : 0);
                   },
                 ),
               ),
