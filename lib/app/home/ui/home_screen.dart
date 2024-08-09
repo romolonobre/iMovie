@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const SizedBox(height: 100),
+            const SizedBox(height: 60),
             const SearchWidget(),
             const SizedBox(height: 20),
             MoviesGridSection(

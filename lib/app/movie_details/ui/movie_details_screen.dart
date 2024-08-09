@@ -53,23 +53,23 @@ class MovieDetailsScreen extends StatelessWidget {
                   ),
                 ),
 
-                const SizedBox(height: 10),
+                const SizedBox(height: 15),
 
                 CastSection(
                   id: movie.id,
                   service: service,
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 15),
                 VideosSection(
                   id: movie.id,
                   service: service,
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 15),
                 PhotosSection(
                   id: movie.id,
                   service: service,
                 ),
-                const SizedBox(height: 100),
+                const SizedBox(height: 30),
               ],
             ),
           ),
