@@ -14,4 +14,9 @@ class CustomSearchController extends ValueNotifier<SearchState> {
     final result = await service.search(value);
     _emit(result);
   }
+
+  Future<void> reset() async {
+    if (value is SearchIdleState) return;
+    _emit(SearchIdleState());
+  }
 }
