@@ -34,9 +34,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
     return Scaffold(
       backgroundColor: backgroundColor,
       body: FutureBuilder<MovieDetailsState>(
-          future: Future.delayed(const Duration(milliseconds: 500)).then(
-            (value) => service.getDetails(id: widget.id),
-          ),
+          future: service.getDetails(id: widget.id),
           builder: (context, snapshot) {
             final state = snapshot.data;
 
