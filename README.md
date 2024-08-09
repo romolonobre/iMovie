@@ -13,6 +13,7 @@ This app provides users with details, reviews, videos, external links to watch s
 - Biometric authetication 
 - Sign-In: Sign in to the app using your email and password
 - Google Sign-In: Easily sign in using your Google account.
+- Search Movies
   
 
 
