@@ -4,9 +4,9 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import '_commons/app_services/cache.dart';
 import '_commons/app_services/utils.dart';
-import '_commons/entities/app_user.dart';
 import '_commons/imovie_ui/iui_text.dart';
 import '_commons/push_notifications/push_notifications.dart';
+import '_commons/user/entities/app_user.dart';
 import 'authentication/interactor/login_controller.dart';
 
 class SplashScreen extends StatefulWidget {
