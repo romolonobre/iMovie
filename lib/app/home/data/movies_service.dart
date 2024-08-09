@@ -1,8 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
-import '../interactor/entities/movie.dart';
+import '../../_commons/movie/adapters/movie_adapter.dart';
+import '../../_commons/movie/entities/movie.dart';
 import '../interactor/states/movies_state.dart';
-import 'adapters/movie_adapter.dart';
 import 'movies_datasource.dart';
 
 class MoviesService {

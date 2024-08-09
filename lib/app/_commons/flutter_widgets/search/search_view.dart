@@ -197,6 +197,7 @@ class _SearchViewState extends State<SearchView> {
               ).borderRadius(8),
               onTap: () {
                 FocusScope.of(context).unfocus();
+                Modular.to.pushNamed('./details', arguments: result.id);
               },
             ).paddingOnly(top: 15);
           },
